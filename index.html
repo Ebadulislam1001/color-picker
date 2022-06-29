@@ -87,7 +87,7 @@
             <input id="b-value-1" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(1)">Go</button>
+            <button type="button" id="button-1" onclick="matchColor(1)">Go</button>
             <input type="text" id="code-1" class="code" readonly />
           </div>
         </form>
@@ -108,7 +108,7 @@
             <input id="b-value-2" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(2)">Go</button>
+            <button type="button" id="button-2" onclick="matchColor(2)">Go</button>
             <input type="text" id="code-2" class="code" readonly />
           </div>
         </form>
@@ -129,7 +129,7 @@
             <input id="b-value-3" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(3)">Go</button>
+            <button type="button" id="button-3" onclick="matchColor(3)">Go</button>
             <input type="text" id="code-3" class="code" readonly />
           </div>
         </form>
@@ -150,7 +150,7 @@
             <input id="b-value-4" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(4)">Go</button>
+            <button type="button" id="button-4" onclick="matchColor(4)">Go</button>
             <input type="text" id="code-4" class="code" readonly />
           </div>
         </form>
@@ -171,7 +171,7 @@
             <input id="b-value-5" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(5)">Go</button>
+            <button type="button" id="button-5" onclick="matchColor(5)">Go</button>
             <input type="text" id="code-5" class="code" readonly />
           </div>
         </form>
@@ -192,7 +192,7 @@
             <input id="b-value-6" type="range" min="0" max="255" />
           </div>
           <div>
-            <button type="button" onclick="produceColor(6)">Go</button>
+            <button type="button" id="button-6" onclick="matchColor(6)">Go</button>
             <input type="text" id="code-6" class="code" readonly />
           </div>
         </form>
@@ -235,13 +235,37 @@
       </section> -->
     </main>
     <script>
-      function produceColor(col) {
-        const rValue = document.getElementById("r-value-" + col).value;
-        const gValue = document.getElementById("g-value-" + col).value;
-        const bValue = document.getElementById("b-value-" + col).value;
-        const bgColor = "rgb(" + rValue + "," + gValue + "," + bValue + ")";
-        document.getElementById("box-" + col).style.backgroundColor = bgColor;
-        document.getElementById("code-" + col).value = bgColor;
+      let attempt = 0;
+      let bestScore = 765;
+      let bestAttempt = 0;
+      const R = Math.floor(Math.random() * 256);
+      const G = Math.floor(Math.random() * 256);
+      const B = Math.floor(Math.random() * 256);
+      const bgColor = "rgb(" + R + "," + G + "," + B + ")";
+      document.getElementById("body").style.backgroundColor = bgColor;
+
+      function matchColor(sec) {
+        attempt = attempt + 1;
+        document.getElementById("button-" + sec).disabled = true;
+        const rValue = document.getElementById("r-value-" + sec).value;
+        const gValue = document.getElementById("g-value-" + sec).value;
+        const bValue = document.getElementById("b-value-" + sec).value;
+        const boxColor = "rgb(" + rValue + "," + gValue + "," + bValue + ")";
+        document.getElementById("box-" + sec).style.backgroundColor = boxColor;
+        document.getElementById("code-" + sec).value = boxColor;
+        const diff = Math.abs(R - rValue) + Math.abs(G - gValue) + Math.abs(B - bValue);
+        if (diff < bestScore) {
+          bestScore = diff;
+          bestAttempt = sec;
+        }
+        console.log(diff);
+        if (diff < 24) {
+          alert("you Won !!\n" + bgColor);
+          alert("Best Attempt = " + bestAttempt + "\nBest Score = " + bestScore);
+        } else if (attempt === 6) {
+          alert("you Lost !!\n" + bgColor);
+          alert("Best Attempt = " + bestAttempt + "\nBest Score = " + bestScore);
+        }
       }
     </script>
   </body>
