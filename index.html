@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Picker</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: rgb(200, 200, 200);
+      }
+      main {
+        margin: 100px 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+      }
+      section {
+        margin: 20px 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .box {
+        width: 120px;
+        height: 120px;
+        background-color: #888888;
+        border: 2px solid black;
+      }
+      @media only screen and (max-width: 900px) {
+        section {
+          margin: 10px;
+        }
+        form {
+          margin: 5px;
+        }
+        .box {
+          width: 85px;
+          height: 85px;
+        }
+      }
+      button {
+        margin: 5px 2px;
+        width: 48px;
+        height: 24px;
+        background-color: #fcfcfc;
+        border: 2px solid #8ca0b4;
+        border-radius: 4px;
+      }
+      .code {
+        margin: 5px 2px;
+        width: 128px;
+        text-align: center;
+        background-color: #fcfcfc;
+        border: 2px solid #8ca0b4;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body id="body">
+    <main id="main">
+      <section id="section-1">
+        <div id="box-1" class="box"></div>
+        <form id="form-1" class="form">
+          <div>
+            <label for="r-value-1">R value :</label>
+            <input id="r-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-1">G value :</label>
+            <input id="g-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-1">B value :</label>
+            <input id="b-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(1)">Go</button>
+            <input type="text" id="code-1" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <section id="section-2">
+        <div id="box-2" class="box"></div>
+        <form id="form-2" class="form">
+          <div>
+            <label for="r-value-2">R value :</label>
+            <input id="r-value-2" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-2">G value :</label>
+            <input id="g-value-2" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-2">B value :</label>
+            <input id="b-value-2" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(2)">Go</button>
+            <input type="text" id="code-2" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <section id="section-3">
+        <div id="box-3" class="box"></div>
+        <form id="form-3" class="form">
+          <div>
+            <label for="r-value-3">R value :</label>
+            <input id="r-value-3" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-3">G value :</label>
+            <input id="g-value-3" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-3">B value :</label>
+            <input id="b-value-3" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(3)">Go</button>
+            <input type="text" id="code-3" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <section id="section-4">
+        <div id="box-4" class="box"></div>
+        <form id="form-4" class="form">
+          <div>
+            <label for="r-value-4">R value :</label>
+            <input id="r-value-4" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-4">G value :</label>
+            <input id="g-value-4" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-4">B value :</label>
+            <input id="b-value-4" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(4)">Go</button>
+            <input type="text" id="code-4" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <section id="section-5">
+        <div id="box-5" class="box"></div>
+        <form id="form-5" class="form">
+          <div>
+            <label for="r-value-5">R value :</label>
+            <input id="r-value-5" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-5">G value :</label>
+            <input id="g-value-5" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-5">B value :</label>
+            <input id="b-value-5" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(5)">Go</button>
+            <input type="text" id="code-5" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <section id="section-6">
+        <div id="box-6" class="box"></div>
+        <form id="form-6" class="form">
+          <div>
+            <label for="r-value-6">R value :</label>
+            <input id="r-value-6" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-6">G value :</label>
+            <input id="g-value-6" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-6">B value :</label>
+            <input id="b-value-6" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <button type="button" onclick="produceColor(6)">Go</button>
+            <input type="text" id="code-6" class="code" readonly />
+          </div>
+        </form>
+      </section>
+      <!-- <section id="section-7">
+        <div id="box-1" class="box"></div>
+        <form id="form-1" class="form">
+          <div>
+            <label for="r-value-1">R value :</label>
+            <input id="r-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-1">G value :</label>
+            <input id="g-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-1">B value :</label>
+            <input id="b-value-1" type="range" min="0" max="255" />
+          </div>
+          <button type="button" onclick="produceColor(1)">Go</button>
+        </form>
+      </section>
+      <section id="section-8">
+        <div id="box-1" class="box"></div>
+        <form id="form-1" class="form">
+          <div>
+            <label for="r-value-1">R value :</label>
+            <input id="r-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="g-value-1">G value :</label>
+            <input id="g-value-1" type="range" min="0" max="255" />
+          </div>
+          <div>
+            <label for="b-value-1">B value :</label>
+            <input id="b-value-1" type="range" min="0" max="255" />
+          </div>
+          <button type="button" onclick="produceColor(1)">Go</button>
+        </form>
+      </section> -->
+    </main>
+    <script>
+      function produceColor(col) {
+        const rValue = document.getElementById("r-value-" + col).value;
+        const gValue = document.getElementById("g-value-" + col).value;
+        const bValue = document.getElementById("b-value-" + col).value;
+        const bgColor = "rgb(" + rValue + "," + gValue + "," + bValue + ")";
+        document.getElementById("box-" + col).style.backgroundColor = bgColor;
+        document.getElementById("code-" + col).value = bgColor;
+      }
+    </script>
+  </body>
+</html>
