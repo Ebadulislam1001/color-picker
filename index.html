@@ -253,7 +253,10 @@
         const boxColor = "rgb(" + rValue + "," + gValue + "," + bValue + ")";
         document.getElementById("box-" + sec).style.backgroundColor = boxColor;
         document.getElementById("code-" + sec).value = boxColor;
-        const diff = Math.abs(R - rValue) + Math.abs(G - gValue) + Math.abs(B - bValue);
+        const dR = Math.abs(R - rValue);
+        const dG = Math.abs(G - gValue);
+        const dB = Math.abs(B - bValue);
+        const diff = Math.floor(Math.sqrt(dR * dR + dG * dG + dB * dB) * 10) / 10;
         if (diff < bestScore) {
           bestScore = diff;
           bestAttempt = sec;
